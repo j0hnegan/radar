@@ -1,0 +1,1532 @@
+{
+  "version": 1,
+  "updated_at": "2026-11-07T19:30:00.000Z",
+  "jobs": [
+    {
+      "id": "73b62daf32",
+      "company": "Linear",
+      "job_title": "Senior / Staff Product Designer",
+      "one_line_about": "Issue tracking and product development tool for software teams.",
+      "location": "Remote, North America",
+      "salary_range": "$220k–$268k + equity",
+      "fit_score": 94,
+      "fit_reason": "Best fit: design-led company with a designer CEO, calm 40-hour culture, building AI agents into the product. Risk: may land at Senior, not Staff.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://linear.app/careers/a264869e-f058-487c-ab7f-9b77dffa427c",
+      "company_careers_url": "",
+      "source": "company site",
+      "posted_date": "",
+      "company_stage": "Late-stage private",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "4ec1abb91d",
+      "company": "Customer.io",
+      "job_title": "Principal Product Designer",
+      "one_line_about": "Messaging automation platform for marketing teams.",
+      "location": "Remote, Americas",
+      "salary_range": "$245k–$276k",
+      "fit_score": 91,
+      "fit_reason": "Senior IC role on agentic features, stated plainly as not management. Risk: reporting line not stated.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://job-boards.greenhouse.io/customerio/jobs/7931819",
+      "company_careers_url": "",
+      "source": "greenhouse",
+      "posted_date": "",
+      "company_stage": "Late-stage private",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "c8eddcbae5",
+      "company": "Ro",
+      "job_title": "Principal Product Designer",
+      "one_line_about": "Direct-to-patient telehealth company.",
+      "location": "Remote or NYC",
+      "salary_range": "$242k–$285k + equity",
+      "fit_score": 88,
+      "fit_reason": "Reports to the VP of Product Design and names Claude in its tools. Risk: \"ownership and urgency\" wording; ask about pace.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://jobs.lever.co/ro/7923cce5-8ac7-4caf-a033-683e81e4dcb9",
+      "company_careers_url": "",
+      "source": "lever",
+      "posted_date": "",
+      "company_stage": "Late-stage private",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "d04717444e",
+      "company": "Runway",
+      "job_title": "Sr./Staff Product Designer",
+      "one_line_about": "Generative AI video and media tools.",
+      "location": "Remote",
+      "salary_range": "$220k–$290k",
+      "fit_score": 85,
+      "fit_reason": "AI-native and well funded. Risk: first-time founders; ask how the design team works.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://job-boards.greenhouse.io/runwayml/jobs/4312818005",
+      "company_careers_url": "",
+      "source": "greenhouse",
+      "posted_date": "",
+      "company_stage": "Late-stage private",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "acb4399ab3",
+      "company": "Vercel",
+      "job_title": "Design Engineer",
+      "one_line_about": "Frontend cloud platform; makers of Next.js and v0.",
+      "location": "Remote, US",
+      "salary_range": "$208k–$312k",
+      "fit_score": 84,
+      "fit_reason": "Sits on the Design team at an AI-forward company; closest to \"designer who builds in code\". Risk: scope runs into frontend engineering.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://job-boards.greenhouse.io/vercel/jobs/6129441004",
+      "company_careers_url": "",
+      "source": "greenhouse",
+      "posted_date": "",
+      "company_stage": "Late-stage private",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "4a49b83fca",
+      "company": "Reddit",
+      "job_title": "Principal Product Designer, Presence",
+      "one_line_about": "Community discussion platform.",
+      "location": "Remote, US",
+      "salary_range": "$224k–$313k + RSUs",
+      "fit_score": 82,
+      "fit_reason": "Stable, design-mature company. Risk: the work itself isn't AI-heavy.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://job-boards.greenhouse.io/reddit/jobs/8129209",
+      "company_careers_url": "",
+      "source": "greenhouse",
+      "posted_date": "",
+      "company_stage": "Public",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "9e8df2c8d5",
+      "company": "Figma",
+      "job_title": "Product Designer, AI Models",
+      "one_line_about": "Collaborative design platform.",
+      "location": "Remote, US (in-person onboarding)",
+      "salary_range": "$169k–$303k + equity",
+      "fit_score": 80,
+      "fit_reason": "Design-led company, AI work. Risk: leans toward model-evaluation work over product UI; level not stated.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://job-boards.greenhouse.io/figma/jobs/5711913004",
+      "company_careers_url": "",
+      "source": "greenhouse",
+      "posted_date": "",
+      "company_stage": "Public",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "a41edfc054",
+      "company": "Stripe",
+      "job_title": "Staff Product Designer, Checkout",
+      "one_line_about": "Payments and financial infrastructure for internet businesses.",
+      "location": "Remote, US",
+      "salary_range": "$191k–$287k + equity",
+      "fit_score": 79,
+      "fit_reason": "Strong design culture and a high pay ceiling. Risk: big-company process; AI isn't central to this role.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://stripe.com/careers/listing/staff-product-designer-checkout/8268059",
+      "company_careers_url": "",
+      "source": "company site",
+      "posted_date": "",
+      "company_stage": "Late-stage private",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "903c6e28a3",
+      "company": "Komodo Health",
+      "job_title": "Staff Product Designer, AI Products",
+      "one_line_about": "Healthcare data and analytics platform.",
+      "location": "Remote, US",
+      "salary_range": "$183k–$247k",
+      "fit_score": 77,
+      "fit_reason": "Hands-on AI product role, posted Nov 5. Risk: pay at the low edge; \"ship in weeks\" with a very broad mandate.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://job-boards.greenhouse.io/komodohealth/jobs/8927314002",
+      "company_careers_url": "",
+      "source": "greenhouse",
+      "posted_date": "2026-11-05",
+      "company_stage": "Late-stage private",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "5249ce643e",
+      "company": "Stripe",
+      "job_title": "Staff Product Designer, Risk",
+      "one_line_about": "Payments and financial infrastructure for internet businesses.",
+      "location": "Remote, US",
+      "salary_range": "$191k–$287k + equity",
+      "fit_score": 74,
+      "fit_reason": "Maybe: same pros and cons as Stripe Checkout.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://stripe.com/careers/listing/staff-product-designer-risk/8031782",
+      "company_careers_url": "",
+      "source": "company site",
+      "posted_date": "",
+      "company_stage": "Late-stage private",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "d0a624e9bf",
+      "company": "Contentsquare (Heap)",
+      "job_title": "Staff Product Designer, AI (East Coast)",
+      "one_line_about": "Digital experience analytics; owns Heap.",
+      "location": "Remote, East Coast",
+      "salary_range": "",
+      "fit_score": 74,
+      "fit_reason": "Maybe: AI 0-to-1 IC work, MA works. Pay not listed.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://jobs.lever.co/contentsquare/af15ce6a-4685-47b8-9143-9b0d829bc053",
+      "company_careers_url": "",
+      "source": "lever",
+      "posted_date": "",
+      "company_stage": "Late-stage private",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "917b0934da",
+      "company": "Twin Health",
+      "job_title": "Principal Product Designer",
+      "one_line_about": "Metabolic health company built on an AI \"digital twin\".",
+      "location": "Remote, US (final interview in Menlo Park)",
+      "salary_range": "$220k–$240k",
+      "fit_score": 72,
+      "fit_reason": "Maybe: AI health, pay in range.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://job-boards.greenhouse.io/twinhealth/jobs/6181143004",
+      "company_careers_url": "",
+      "source": "greenhouse",
+      "posted_date": "",
+      "company_stage": "Late-stage private",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "929af85b39",
+      "company": "Webflow",
+      "job_title": "Staff Product Designer, Agentic CMS",
+      "one_line_about": "Visual website building platform.",
+      "location": "Remote, US",
+      "salary_range": "$180k–$230k",
+      "fit_score": 71,
+      "fit_reason": "Maybe: very on-theme AI work, but pay is low and \"grit, we move fast\". Not re-read Nov 7.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://jobs.ashbyhq.com/webflow/4e640a4d-ee08-4297-a479-43b9a0c55819",
+      "company_careers_url": "",
+      "source": "ashby",
+      "posted_date": "",
+      "company_stage": "Late-stage private",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "40a32e1942",
+      "company": "Reddit",
+      "job_title": "Staff Product Designer, Growth",
+      "one_line_about": "Community discussion platform.",
+      "location": "Remote, US",
+      "salary_range": "$195k–$272k + RSUs",
+      "fit_score": 70,
+      "fit_reason": "Maybe: mentions AI tools; \"high-velocity experimentation\".",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://job-boards.greenhouse.io/reddit/jobs/7701558",
+      "company_careers_url": "",
+      "source": "greenhouse",
+      "posted_date": "",
+      "company_stage": "Public",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "62ca61fbd8",
+      "company": "Vanta",
+      "job_title": "Staff Product Designer, Activation",
+      "one_line_about": "Security compliance automation.",
+      "location": "Remote, US",
+      "salary_range": "$236k–$278k",
+      "fit_score": 70,
+      "fit_reason": "Maybe: open, but pay and location couldn't be re-read Nov 7. No head of design.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://jobs.ashbyhq.com/vanta/7d9922bb-2d0e-4833-bc4e-df65dc57d232",
+      "company_careers_url": "",
+      "source": "ashby",
+      "posted_date": "",
+      "company_stage": "Late-stage private",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "38c8133e61",
+      "company": "Reddit",
+      "job_title": "Staff Product Designer, Presence",
+      "one_line_about": "Community discussion platform.",
+      "location": "Remote, US",
+      "salary_range": "$195k–$272k + RSUs",
+      "fit_score": 69,
+      "fit_reason": "Maybe: stable company; not AI-heavy.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://job-boards.greenhouse.io/reddit/jobs/8120566",
+      "company_careers_url": "",
+      "source": "greenhouse",
+      "posted_date": "",
+      "company_stage": "Public",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "2dd321c5ea",
+      "company": "Whoop",
+      "job_title": "Staff Product Designer, Connected Experiences",
+      "one_line_about": "Wearable fitness and health tracker.",
+      "location": "Boston, MA",
+      "salary_range": "",
+      "fit_score": 68,
+      "fit_reason": "Maybe: wearables fits the OPEX story. Pay not listed.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://jobs.ashbyhq.com/whoop/03f3a9a8-608c-44a7-bba1-0f23f8c1f072",
+      "company_careers_url": "",
+      "source": "ashby",
+      "posted_date": "",
+      "company_stage": "Late-stage private",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "ab3d989a68",
+      "company": "Ramp",
+      "job_title": "Principal Product Designer, Design Systems Lead",
+      "one_line_about": "Corporate cards and spend management.",
+      "location": "Remote, US",
+      "salary_range": "$280k–$385k",
+      "fit_score": 66,
+      "fit_reason": "Maybe: highest pay, but documented long-hours culture and \"high urgency\".",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://jobs.ashbyhq.com/ramp/baa94095-c976-46d0-8d18-25a951950714",
+      "company_careers_url": "",
+      "source": "ashby",
+      "posted_date": "",
+      "company_stage": "Late-stage private",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "f1cdffaa7f",
+      "company": "WorkOS",
+      "job_title": "Design Engineer",
+      "one_line_about": "Developer APIs for enterprise features like SSO.",
+      "location": "Remote, US",
+      "salary_range": "about $175k–$225k",
+      "fit_score": 64,
+      "fit_reason": "Maybe: developer tools design engineer role. Pay from a Built In copy.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://jobs.ashbyhq.com/workos/dbc4f497-fbb5-415e-b2b0-69321150424e",
+      "company_careers_url": "",
+      "source": "ashby",
+      "posted_date": "",
+      "company_stage": "",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "68034ace1a",
+      "company": "Kraken",
+      "job_title": "Staff Product Designer, AI Products",
+      "one_line_about": "Cryptocurrency exchange.",
+      "location": "US",
+      "salary_range": "",
+      "fit_score": 63,
+      "fit_reason": "Maybe: AI role at a crypto company. Pay not listed.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://jobs.ashbyhq.com/kraken.com/5f7c8bb0-810a-4ea4-ad6a-2d7c2e2dbdcb",
+      "company_careers_url": "",
+      "source": "ashby",
+      "posted_date": "",
+      "company_stage": "",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "d0ed9915c8",
+      "company": "Babylist",
+      "job_title": "Staff Product Designer",
+      "one_line_about": "Baby registry and shopping platform.",
+      "location": "Remote",
+      "salary_range": "$196k–$240k",
+      "fit_score": 62,
+      "fit_reason": "Maybe: the posting is now \"Registry\", no longer the AI Builder role.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://job-boards.greenhouse.io/babylist/jobs/5831620004",
+      "company_careers_url": "",
+      "source": "greenhouse",
+      "posted_date": "",
+      "company_stage": "Late-stage private",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "2475ce4f59",
+      "company": "Parachute Health",
+      "job_title": "Staff Product Designer",
+      "one_line_about": "Ordering platform for home medical equipment.",
+      "location": "Remote, US",
+      "salary_range": "$155k–$210k",
+      "fit_score": 60,
+      "fit_reason": "Maybe: names Claude and Cursor, but pay is below target.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://job-boards.greenhouse.io/parachutehealth/jobs/5209360007",
+      "company_careers_url": "",
+      "source": "greenhouse",
+      "posted_date": "",
+      "company_stage": "",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "d719570f7b",
+      "company": "Anthropic",
+      "job_title": "Product Designer, Claude Developer Platform",
+      "one_line_about": "AI safety and research company; makers of Claude.",
+      "location": "SF, NYC or Seattle (25% in office)",
+      "salary_range": "$305k–$385k",
+      "fit_score": 90,
+      "fit_reason": "Frontier lab, recommended first: product direction for Claude's API and developer products, closest to his DigitalOcean work.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://job-boards.greenhouse.io/anthropic/jobs/5397654008",
+      "company_careers_url": "",
+      "source": "greenhouse",
+      "posted_date": "",
+      "company_stage": "Frontier lab",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "a06b9c8517",
+      "company": "Anthropic",
+      "job_title": "Product Designer, Growth",
+      "one_line_about": "AI safety and research company; makers of Claude.",
+      "location": "San Francisco (25% in office)",
+      "salary_range": "$305k–$460k",
+      "fit_score": 88,
+      "fit_reason": "Frontier lab: owns how people bring Claude into everyday work; prototypes fast in code.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://job-boards.greenhouse.io/anthropic/jobs/5446776008",
+      "company_careers_url": "",
+      "source": "greenhouse",
+      "posted_date": "",
+      "company_stage": "Frontier lab",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "5cd93d462e",
+      "company": "Anthropic",
+      "job_title": "Product Designer, Safeguards",
+      "one_line_about": "AI safety and research company; makers of Claude.",
+      "location": "SF, NYC or Seattle (25% in office)",
+      "salary_range": "$305k–$385k",
+      "fit_score": 85,
+      "fit_reason": "Frontier lab: trust-building interfaces and new AI interaction patterns for Claude.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://job-boards.greenhouse.io/anthropic/jobs/5428014008",
+      "company_careers_url": "",
+      "source": "greenhouse",
+      "posted_date": "",
+      "company_stage": "Frontier lab",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "c36cf80f0d",
+      "company": "OpenAI",
+      "job_title": "Product Designer, Codex",
+      "one_line_about": "AI research company; makers of ChatGPT and Codex.",
+      "location": "San Francisco (3 days in office)",
+      "salary_range": "$245k–$310k + equity",
+      "fit_score": 84,
+      "fit_reason": "Frontier lab: end-to-end design for OpenAI's coding agent, through high-fidelity prototypes.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://openai.com/careers/product-designer-codex-san-francisco",
+      "company_careers_url": "",
+      "source": "company site",
+      "posted_date": "",
+      "company_stage": "Frontier lab",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "c9e84e253a",
+      "company": "Anthropic",
+      "job_title": "Product Designer, Design Systems",
+      "one_line_about": "AI safety and research company; makers of Claude.",
+      "location": "San Francisco (25% in office)",
+      "salary_range": "$305k–$385k",
+      "fit_score": 82,
+      "fit_reason": "Frontier lab: evolves the shared Claude UI system (components, motion, icons).",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://job-boards.greenhouse.io/anthropic/jobs/5428124008",
+      "company_careers_url": "",
+      "source": "greenhouse",
+      "posted_date": "",
+      "company_stage": "Frontier lab",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "8300e402f9",
+      "company": "Anthropic",
+      "job_title": "Product Designer, People Products",
+      "one_line_about": "AI safety and research company; makers of Claude.",
+      "location": "Remote-friendly US, with travel",
+      "salary_range": "$260k–$385k",
+      "fit_score": 78,
+      "fit_reason": "Frontier lab: AI-native internal tools for the people team. May be closing soon.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://job-boards.greenhouse.io/anthropic/jobs/5383660008",
+      "company_careers_url": "",
+      "source": "greenhouse",
+      "posted_date": "",
+      "company_stage": "Frontier lab",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "5f40238109",
+      "company": "OpenAI",
+      "job_title": "Product Designer, Engineering Acceleration",
+      "one_line_about": "AI research company; makers of ChatGPT and Codex.",
+      "location": "Seattle or San Francisco",
+      "salary_range": "$245k–$310k + equity",
+      "fit_score": 76,
+      "fit_reason": "Frontier lab: internal observability and experimentation tools for OpenAI's own teams.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://openai.com/careers/product-designer-engineering-acceleration-seattle",
+      "company_careers_url": "",
+      "source": "company site",
+      "posted_date": "",
+      "company_stage": "Frontier lab",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "863f2fc876",
+      "company": "Google DeepMind",
+      "job_title": "Model UX AI Product Designer, Gemini App",
+      "one_line_about": "Google's AI research lab; makers of Gemini.",
+      "location": "Mountain View, NYC, SF or Seattle",
+      "salary_range": "$178k–$265k + bonus + equity",
+      "fit_score": 76,
+      "fit_reason": "Frontier lab, Senior: helps people discover and use Gemini app features.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://job-boards.greenhouse.io/deepmind/jobs/7517238",
+      "company_careers_url": "",
+      "source": "greenhouse",
+      "posted_date": "",
+      "company_stage": "Frontier lab",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "ae5f7b470a",
+      "company": "OpenAI",
+      "job_title": "Product Designer, People Innovation Labs",
+      "one_line_about": "AI research company; makers of ChatGPT and Codex.",
+      "location": "San Francisco",
+      "salary_range": "$230k–$385k + equity",
+      "fit_score": 74,
+      "fit_reason": "Frontier lab: internal AI products for OpenAI's people team.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://openai.com/careers/product-designer-people-innovation-labs-san-francisco",
+      "company_careers_url": "",
+      "source": "company site",
+      "posted_date": "",
+      "company_stage": "Frontier lab",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "dba771d87f",
+      "company": "Google DeepMind",
+      "job_title": "UX Designer, Human-Computer Interaction",
+      "one_line_about": "Google's AI research lab; makers of Gemini.",
+      "location": "Mountain View",
+      "salary_range": "$189k–$274k + 20% bonus + equity",
+      "fit_score": 74,
+      "fit_reason": "Frontier lab: prototypes new interaction patterns for human-AI collaboration.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://www.google.com/about/careers/applications/jobs/results/137916551205397190",
+      "company_careers_url": "",
+      "source": "company site",
+      "posted_date": "",
+      "company_stage": "Frontier lab",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "ec949802ad",
+      "company": "Meta Superintelligence Labs",
+      "job_title": "Product Designer",
+      "one_line_about": "Meta's AI lab.",
+      "location": "",
+      "salary_range": "",
+      "fit_score": 60,
+      "fit_reason": "Frontier lab: Meta's careers site couldn't be read, so status, location and pay are unknown.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://www.metacareers.com/profile/job_details/1069625435495910",
+      "company_careers_url": "",
+      "source": "company site",
+      "posted_date": "",
+      "company_stage": "Frontier lab",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "56fff4ad2a",
+      "company": "xAI",
+      "job_title": "Exceptional Designer",
+      "one_line_about": "AI company; makers of Grok.",
+      "location": "Palo Alto",
+      "salary_range": "$180k–$400k + equity",
+      "fit_score": 60,
+      "fit_reason": "Frontier lab: hands-on design across X and Grok. Not on xAI's public board, so it may be unlisted or closing; culture risk is high.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://job-boards.greenhouse.io/xai/jobs/5041977007",
+      "company_careers_url": "",
+      "source": "greenhouse",
+      "posted_date": "",
+      "company_stage": "Frontier lab",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "bad371887b",
+      "company": "Mistral",
+      "job_title": "Product Designer",
+      "one_line_about": "French AI lab; makers of Le Chat.",
+      "location": "Paris (on-site)",
+      "salary_range": "",
+      "fit_score": 55,
+      "fit_reason": "Frontier lab: Le Chat and la Plateforme. On-site in Paris, no pay listed.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://jobs.lever.co/mistral/6282ba64-f05b-4d8f-ac8e-c367592604e1",
+      "company_careers_url": "",
+      "source": "lever",
+      "posted_date": "",
+      "company_stage": "Frontier lab",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "8a6c588c10",
+      "company": "Thrive Market",
+      "job_title": "Staff Product Designer, Discovery",
+      "one_line_about": "Online membership grocery store.",
+      "location": "Remote, US or Playa Vista (LA)",
+      "salary_range": "",
+      "fit_score": 62,
+      "fit_reason": "Wildcard: a way into the LA option; two LA trips a year. Pay not listed.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://boards.greenhouse.io/thrivemarket/jobs/4436311009",
+      "company_careers_url": "",
+      "source": "greenhouse",
+      "posted_date": "",
+      "company_stage": "Late-stage private",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "2ca54d8735",
+      "company": "Linktree",
+      "job_title": "Principal Product Designer",
+      "one_line_about": "Link-in-bio platform for creators.",
+      "location": "Remote, US or LA hybrid",
+      "salary_range": "$280k–$310k",
+      "fit_score": 60,
+      "fit_reason": "Wildcard: player-coach managing 3–5 designers, more than the 1–2 he's open to.",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "https://linktr.ee/about/careers/am9icG9zdDrWxzzbVFqGbDibd9TQp5qf",
+      "company_careers_url": "",
+      "source": "company site",
+      "posted_date": "",
+      "company_stage": "Late-stage private",
+      "status": "New",
+      "status_history": [
+        {
+          "status": "New",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "17b64f7c19",
+      "company": "Wrapbook",
+      "job_title": "Product Designer",
+      "one_line_about": "Payroll and production management for film and TV.",
+      "location": "",
+      "salary_range": "",
+      "fit_score": null,
+      "fit_reason": "",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "",
+      "company_careers_url": "",
+      "source": "",
+      "posted_date": "",
+      "company_stage": "",
+      "status": "Applied",
+      "status_history": [
+        {
+          "status": "Applied",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": "Applied before Nov 4. Exact title and date not recorded; edit if needed."
+    },
+    {
+      "id": "910de629b0",
+      "company": "Instrumentl",
+      "job_title": "Product Designer",
+      "one_line_about": "Grant discovery and management for nonprofits.",
+      "location": "",
+      "salary_range": "",
+      "fit_score": null,
+      "fit_reason": "",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "",
+      "company_careers_url": "",
+      "source": "",
+      "posted_date": "",
+      "company_stage": "",
+      "status": "Applied",
+      "status_history": [
+        {
+          "status": "Applied",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": "Applied before Nov 4. Exact title and date not recorded; edit if needed."
+    },
+    {
+      "id": "03f499fbca",
+      "company": "Tithely",
+      "job_title": "Product Designer",
+      "one_line_about": "Giving and management software for churches.",
+      "location": "",
+      "salary_range": "",
+      "fit_score": null,
+      "fit_reason": "",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "",
+      "company_careers_url": "",
+      "source": "",
+      "posted_date": "",
+      "company_stage": "",
+      "status": "Applied",
+      "status_history": [
+        {
+          "status": "Applied",
+          "at": "2026-11-07T19:30:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": "Applied before Nov 4. Exact title and date not recorded; edit if needed."
+    },
+    {
+      "id": "4428c4f3fd",
+      "company": "Mobi",
+      "job_title": "Product Designer",
+      "one_line_about": "",
+      "location": "",
+      "salary_range": "",
+      "fit_score": null,
+      "fit_reason": "",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "",
+      "company_careers_url": "",
+      "source": "",
+      "posted_date": "",
+      "company_stage": "",
+      "status": "Screen",
+      "status_history": [
+        {
+          "status": "Applied",
+          "at": "2026-11-07T19:30:00.000Z"
+        },
+        {
+          "status": "Screen",
+          "at": "2026-11-03T12:00:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-11-03T12:00:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": "Invited to an intro call on Nov 3. No booking confirmation seen as of Nov 5."
+    },
+    {
+      "id": "9a9d2dbf58",
+      "company": "Flagship Pioneering",
+      "job_title": "Product Designer",
+      "one_line_about": "Life sciences venture creation firm.",
+      "location": "",
+      "salary_range": "",
+      "fit_score": null,
+      "fit_reason": "",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "",
+      "company_careers_url": "",
+      "source": "",
+      "posted_date": "",
+      "company_stage": "",
+      "status": "Applied",
+      "status_history": [
+        {
+          "status": "Applied",
+          "at": "2026-11-05T12:00:00.000Z"
+        }
+      ],
+      "applied_at": "2026-11-05",
+      "last_activity_at": "2026-11-05T12:00:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": "Exact title not recorded; edit if needed."
+    },
+    {
+      "id": "de071cffdc",
+      "company": "Tessera Labs",
+      "job_title": "Senior Product Designer",
+      "one_line_about": "",
+      "location": "",
+      "salary_range": "",
+      "fit_score": null,
+      "fit_reason": "",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "",
+      "company_careers_url": "",
+      "source": "",
+      "posted_date": "",
+      "company_stage": "",
+      "status": "Applied",
+      "status_history": [
+        {
+          "status": "Applied",
+          "at": "2026-11-06T12:00:00.000Z"
+        }
+      ],
+      "applied_at": "2026-11-06",
+      "last_activity_at": "2026-11-06T12:00:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": ""
+    },
+    {
+      "id": "01c60fd0b1",
+      "company": "Tremendous",
+      "job_title": "Product Designer",
+      "one_line_about": "Payouts and rewards platform.",
+      "location": "",
+      "salary_range": "",
+      "fit_score": null,
+      "fit_reason": "",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "",
+      "company_careers_url": "",
+      "source": "",
+      "posted_date": "",
+      "company_stage": "",
+      "status": "Applied",
+      "status_history": [
+        {
+          "status": "Applied",
+          "at": "2026-11-06T12:00:00.000Z"
+        }
+      ],
+      "applied_at": "2026-11-06",
+      "last_activity_at": "2026-11-06T12:00:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": "Exact title not recorded; edit if needed."
+    },
+    {
+      "id": "0d5855fc68",
+      "company": "LiveKit",
+      "job_title": "Senior Product Designer, Developer Platform",
+      "one_line_about": "Open-source realtime voice and video infrastructure for AI apps.",
+      "location": "",
+      "salary_range": "",
+      "fit_score": null,
+      "fit_reason": "",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "",
+      "company_careers_url": "",
+      "source": "",
+      "posted_date": "",
+      "company_stage": "",
+      "status": "Applied",
+      "status_history": [
+        {
+          "status": "Applied",
+          "at": "2026-11-06T23:00:00.000Z"
+        }
+      ],
+      "applied_at": "2026-11-06",
+      "last_activity_at": "2026-11-06T23:00:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": "Application acknowledged Nov 7."
+    },
+    {
+      "id": "4c8da4b00b",
+      "company": "Nubank",
+      "job_title": "Product Designer",
+      "one_line_about": "Digital bank based in Brazil.",
+      "location": "",
+      "salary_range": "",
+      "fit_score": null,
+      "fit_reason": "",
+      "hiring_manager": {
+        "name": "",
+        "linkedin": ""
+      },
+      "job_url": "",
+      "company_careers_url": "",
+      "source": "",
+      "posted_date": "",
+      "company_stage": "",
+      "status": "Rejected",
+      "status_history": [
+        {
+          "status": "Applied",
+          "at": "2026-11-07T19:30:00.000Z"
+        },
+        {
+          "status": "Rejected",
+          "at": "2026-10-29T12:00:00.000Z"
+        }
+      ],
+      "applied_at": "",
+      "last_activity_at": "2026-10-29T12:00:00.000Z",
+      "added_at": "2026-11-07T19:30:00.000Z",
+      "rounds": [],
+      "thumbs": null,
+      "removed": null,
+      "notes": "Declined on Oct 29. Exact title not recorded."
+    }
+  ]
+}
