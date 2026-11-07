@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { ExternalLinkIcon, Trash2Icon, Undo2Icon, XIcon } from "lucide-react"
 import { toast } from "sonner"
 import { Sheet, SheetContent, SheetDescription, SheetTitle } from "@/components/ui/sheet"
@@ -64,13 +64,13 @@ export function RecordSheet({
   return (
     <Sheet open={!!job} onOpenChange={(o) => !o && onClose()}>
       <SheetContent className="w-full gap-0 p-0 sm:max-w-xl [&>button:last-child]:hidden">
-        {job && <Body key={job.id} job={job} onClose={onClose} onRemove={onRemove} />}
+        {job && <RecordBody key={job.id} job={job} onClose={onClose} onRemove={onRemove} />}
       </SheetContent>
     </Sheet>
   )
 }
 
-function Body({ job, onClose, onRemove }: { job: Job; onClose: () => void; onRemove: (id: string) => void }) {
+export function RecordBody({ job, onClose, onRemove }: { job: Job; onClose: () => void; onRemove: (id: string) => void }) {
   const { act } = useBoard()
   const hm = job.hiring_manager || { name: "", linkedin: "" }
   const [notes, setNotes] = useState(job.notes || "")
@@ -91,8 +91,6 @@ function Body({ job, onClose, onRemove }: { job: Job; onClose: () => void; onRem
     job_url: job.job_url,
     company_careers_url: job.company_careers_url,
   })
-
-  useEffect(() => setNotes(job.notes || ""), [job.notes])
 
   const posting = safeUrl(job.job_url)
   const careers = safeUrl(job.company_careers_url)

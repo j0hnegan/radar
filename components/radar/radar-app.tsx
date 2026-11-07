@@ -68,25 +68,21 @@ type Prefs = {
 const DEFAULT_PREFS: Prefs = { view: "grid", filter: "active", group: false, sorting: [], visibility: DEFAULT_HIDDEN, sizing: {} }
 
 function usePrefs() {
-  const [prefs, setPrefs] = useState<Prefs>(DEFAULT_PREFS)
-  const [ready, setReady] = useState(false)
-  useEffect(() => {
+  // Shell only mounts in the browser after sign-in, so reading storage here is safe.
+  const [prefs, setPrefs] = useState<Prefs>(() => {
     try {
-      const saved = JSON.parse(localStorage.getItem("radar:prefs:v2") || "{}")
-      setPrefs((p) => ({ ...p, ...saved }))
+      return { ...DEFAULT_PREFS, ...JSON.parse(localStorage.getItem("radar:prefs:v2") || "{}") }
     } catch {
-      /* private mode */
+      return DEFAULT_PREFS
     }
-    setReady(true)
-  }, [])
+  })
   useEffect(() => {
-    if (!ready) return
     try {
       localStorage.setItem("radar:prefs:v2", JSON.stringify(prefs))
     } catch {
       /* private mode */
     }
-  }, [prefs, ready])
+  }, [prefs])
   const set = useCallback(<K extends keyof Prefs>(k: K, v: Prefs[K] | ((old: Prefs[K]) => Prefs[K])) => {
     setPrefs((p) => ({ ...p, [k]: typeof v === "function" ? (v as (o: Prefs[K]) => Prefs[K])(p[k]) : v }))
   }, [])

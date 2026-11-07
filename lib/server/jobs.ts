@@ -27,7 +27,6 @@ export function makeId(seed?: string) {
 
 export function str(v: unknown, max: number): string {
   if (v === undefined || v === null) return ""
-  // eslint-disable-next-line no-control-regex
   let s = String(v).replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g, "").trim()
   if (s.toLowerCase() === "unknown") s = ""
   return s.slice(0, max)

@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useState } from "react"
 import { ChevronDownIcon, ThumbsDownIcon, ThumbsUpIcon } from "lucide-react"
 import {
   DropdownMenu,
@@ -160,13 +160,6 @@ export function NotesCell({ job }: { job: Job }) {
   const { act } = useBoard()
   const [editing, setEditing] = useState(false)
   const [value, setValue] = useState(job.notes || "")
-  const ref = useRef<HTMLInputElement>(null)
-  useEffect(() => {
-    if (!editing) setValue(job.notes || "")
-  }, [job.notes, editing])
-  useEffect(() => {
-    if (editing) ref.current?.focus()
-  }, [editing])
   const save = () => {
     setEditing(false)
     if (value !== (job.notes || "")) act(job.id, { action: "notes", notes: value }, (j) => ({ ...j, notes: value }))
@@ -174,7 +167,7 @@ export function NotesCell({ job }: { job: Job }) {
   if (editing)
     return (
       <input
-        ref={ref}
+        autoFocus
         value={value}
         onClick={stop}
         onChange={(e) => setValue(e.target.value)}
@@ -195,6 +188,7 @@ export function NotesCell({ job }: { job: Job }) {
       type="button"
       onClick={(e) => {
         e.stopPropagation()
+        setValue(job.notes || "")
         setEditing(true)
       }}
       className={cn("block h-full w-full truncate text-left", !job.notes && "text-muted-foreground/50")}

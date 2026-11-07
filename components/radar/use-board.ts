@@ -34,7 +34,9 @@ export function useBoardState() {
   const [inboxCount, setInboxCount] = useState(0)
   const [loadError, setLoadError] = useState("")
   const jobsRef = useRef<Job[]>([])
-  jobsRef.current = jobs
+  useEffect(() => {
+    jobsRef.current = jobs
+  }, [jobs])
 
   const handle = useCallback((err: unknown) => {
     if (err instanceof SignedOut) setAuthed(false)
@@ -56,6 +58,8 @@ export function useBoardState() {
   }, [])
 
   useEffect(() => {
+    // Fetch on mount; load() only sets state after the request resolves.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     load()
     // Pick up changes made elsewhere (the screener, his phone) when the tab comes back.
     const onVis = () => document.visibilityState === "visible" && load()

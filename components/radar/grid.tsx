@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useMemo, useState, useSyncExternalStore } from "react"
 import {
   flexRender,
   getCoreRowModel,
@@ -57,7 +57,18 @@ import {
 import { FitScore, NotesCell, StageMenu, StatusMenu, StatusPill, Thumbs } from "./cells"
 import { useBoard } from "./use-board"
 
-const ROWNUM = 52
+// Narrow screens get a slimmer row-number and company column so more of the grid fits.
+function useNarrow() {
+  return useSyncExternalStore(
+    (cb) => {
+      const m = window.matchMedia("(max-width: 640px)")
+      m.addEventListener("change", cb)
+      return () => m.removeEventListener("change", cb)
+    },
+    () => window.matchMedia("(max-width: 640px)").matches,
+    () => false
+  )
+}
 
 type Meta = { icon?: React.ComponentType<{ className?: string }>; sticky?: boolean; className?: string }
 
@@ -80,7 +91,7 @@ function Flag({ children, tone }: { children: React.ReactNode; tone: "amber" | "
   return <span className={cn("shrink-0 rounded px-1.5 py-px text-[11px] font-medium", tones[tone])}>{children}</span>
 }
 
-function useColumns(onRemove: (id: string) => void): ColumnDef<JobRow>[] {
+function useColumns(onRemove: (id: string) => void, narrow: boolean): ColumnDef<JobRow>[] {
   const { act } = useBoard()
   return useMemo<ColumnDef<JobRow>[]>(
     () => [
@@ -88,8 +99,8 @@ function useColumns(onRemove: (id: string) => void): ColumnDef<JobRow>[] {
         id: "company",
         accessorKey: "company",
         header: () => <Head icon={Building2Icon} label="Company" />,
-        size: 210,
-        minSize: 120,
+        size: narrow ? 150 : 210,
+        minSize: 110,
         meta: { sticky: true } as Meta,
         sortingFn: (a, b) => a.original.company.localeCompare(b.original.company),
         cell: ({ row }) => {
@@ -317,7 +328,7 @@ function useColumns(onRemove: (id: string) => void): ColumnDef<JobRow>[] {
         },
       },
     ],
-    [act, onRemove]
+    [act, onRemove, narrow]
   )
 }
 
@@ -353,7 +364,9 @@ type Props = {
 }
 
 export function Grid(p: Props) {
-  const columns = useColumns(p.onRemove)
+  const narrow = useNarrow()
+  const ROWNUM = narrow ? 36 : 52
+  const columns = useColumns(p.onRemove, narrow)
   const [expanded, setExpanded] = useState<ExpandedState>(true)
   const [collapsed, setCollapsed] = useState<Set<string>>(new Set())
 
@@ -379,7 +392,6 @@ export function Grid(p: Props) {
   const rows = table.getRowModel().rows
   const headers = table.getHeaderGroups()[0].headers
   const visibleCols = table.getVisibleLeafColumns()
-  const companyWidth = table.getColumn("company")?.getSize() ?? 210
 
   // Blocks keep a parent row with the roles nested under it.
   const blocks: Row<JobRow>[][] = []
