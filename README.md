@@ -44,9 +44,9 @@ The board ──/api/update──▶ data/jobs.json  (status, rounds, notes, thu
    | `INGEST_KEY` | the random key from step 2 |
 
 4. Click **Deploy**.
-5. In **Settings → Git**, check the **Production Branch** is the repo's default branch (the one holding this code). The board saves its data to that same branch.
+5. In **Settings → Git**, set the **Production Branch** to `main`. The board saves its data to that same branch.
 
-The board writes its data to the branch it was deployed from, using Vercel's built-in variables for the repo and branch (they're on by default under **Settings → Environment Variables → Automatically expose System Environment Variables**). If you turned those off, also add `GITHUB_REPO` = `j0hnegan/radar` and `GITHUB_BRANCH` = the production branch's name.
+The board writes its data to the branch it was deployed from, using Vercel's built-in variables for the repo and branch (they're on by default under **Settings → Environment Variables → Automatically expose System Environment Variables**). If you turned those off, also add `GITHUB_REPO` = `j0hnegan/radar` and `GITHUB_BRANCH` = `main`.
 
 Commits that only change `data/` don't trigger a new deployment (see `vercel.json`), so the board's own writes never cause rebuilds.
 
