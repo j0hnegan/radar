@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* The theme is set on <html data-theme> before paint (see layout.tsx), so dark: follows it. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -25,6 +28,7 @@
   --color-grid-head: var(--grid-head);
   --color-grid-hover: var(--grid-hover);
   --color-grid-select: var(--grid-select);
+  --color-grid-freeze: var(--grid-freeze);
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
   --radius-sm: calc(var(--radius) - 4px);
@@ -57,37 +61,38 @@
   --grid-head: oklch(0.975 0.003 260);
   --grid-hover: oklch(0.975 0.006 258);
   --grid-select: oklch(0.95 0.03 258);
+  --grid-freeze: oklch(0.8 0.008 260);
   --brand: oklch(0.32 0.08 262);
   --brand-foreground: oklch(0.98 0 0);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: oklch(0.18 0.006 260);
-    --foreground: oklch(0.95 0.003 260);
-    --card: oklch(0.21 0.006 260);
-    --card-foreground: oklch(0.95 0.003 260);
-    --popover: oklch(0.23 0.007 260);
-    --popover-foreground: oklch(0.95 0.003 260);
-    --primary: oklch(0.68 0.15 258);
-    --primary-foreground: oklch(0.16 0.01 260);
-    --secondary: oklch(0.26 0.007 260);
-    --secondary-foreground: oklch(0.95 0.003 260);
-    --muted: oklch(0.26 0.007 260);
-    --muted-foreground: oklch(0.7 0.01 260);
-    --accent: oklch(0.28 0.008 260);
-    --accent-foreground: oklch(0.95 0.003 260);
-    --destructive: oklch(0.68 0.19 22);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 14%);
-    --ring: oklch(0.6 0.14 258);
-    --grid: oklch(1 0 0 / 8%);
-    --grid-head: oklch(0.21 0.006 260);
-    --grid-hover: oklch(0.22 0.01 258);
-    --grid-select: oklch(0.27 0.04 258);
-    --brand: oklch(0.24 0.04 262);
-    --brand-foreground: oklch(0.97 0 0);
-  }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: oklch(0.18 0.006 260);
+  --foreground: oklch(0.95 0.003 260);
+  --card: oklch(0.21 0.006 260);
+  --card-foreground: oklch(0.95 0.003 260);
+  --popover: oklch(0.23 0.007 260);
+  --popover-foreground: oklch(0.95 0.003 260);
+  --primary: oklch(0.68 0.15 258);
+  --primary-foreground: oklch(0.16 0.01 260);
+  --secondary: oklch(0.26 0.007 260);
+  --secondary-foreground: oklch(0.95 0.003 260);
+  --muted: oklch(0.26 0.007 260);
+  --muted-foreground: oklch(0.7 0.01 260);
+  --accent: oklch(0.28 0.008 260);
+  --accent-foreground: oklch(0.95 0.003 260);
+  --destructive: oklch(0.68 0.19 22);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.6 0.14 258);
+  --grid: oklch(1 0 0 / 8%);
+  --grid-head: oklch(0.21 0.006 260);
+  --grid-hover: oklch(0.22 0.01 258);
+  --grid-select: oklch(0.27 0.04 258);
+  --grid-freeze: oklch(1 0 0 / 22%);
+  --brand: oklch(0.24 0.04 262);
+  --brand-foreground: oklch(0.97 0 0);
 }
 
 @layer base {

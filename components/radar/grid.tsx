@@ -70,7 +70,7 @@ function useNarrow() {
   )
 }
 
-type Meta = { icon?: React.ComponentType<{ className?: string }>; sticky?: boolean; className?: string }
+type Meta = { icon?: React.ComponentType<{ className?: string }>; className?: string }
 
 function Head({ icon: Icon, label }: { icon?: Meta["icon"]; label: string }) {
   return (
@@ -101,7 +101,6 @@ function useColumns(onRemove: (id: string) => void, narrow: boolean): ColumnDef<
         header: () => <Head icon={Building2Icon} label="Company" />,
         size: narrow ? 150 : 210,
         minSize: 110,
-        meta: { sticky: true } as Meta,
         sortingFn: (a, b) => a.original.company.localeCompare(b.original.company),
         cell: ({ row }) => {
           const j = row.original
@@ -359,9 +358,17 @@ type Props = {
   onColumnVisibilityChange: OnChangeFn<VisibilityState>
   columnSizing: ColumnSizingState
   onColumnSizingChange: OnChangeFn<ColumnSizingState>
+  frozenRows: number
+  frozenCols: number
   onOpen: (id: string) => void
   onRemove: (id: string) => void
 }
+
+const HEAD_H = 32
+const ROW_H = 36
+const GROUP_H = 40
+
+type Item = { kind: "group"; status: Status; count: number; collapsed: boolean } | { kind: "row"; row: Row<JobRow> }
 
 export function Grid(p: Props) {
   const narrow = useNarrow()
@@ -405,12 +412,51 @@ export function Grid(p: Props) {
       )
     : [{ status: null, blocks }]
 
-  const stickyCell = (sticky: boolean, left: number, z = 10) =>
-    sticky ? { position: "sticky" as const, left, zIndex: z } : undefined
+  // Frozen columns stick at the left edge, each offset by the widths before it (like Sheets' freeze).
+  const colLeft: number[] = []
+  let x = ROWNUM
+  visibleCols.forEach((c, i) => {
+    if (i < p.frozenCols) colLeft.push(x)
+    x += c.getSize()
+  })
+  const lastFrozenCol = Math.min(p.frozenCols, visibleCols.length) - 1
+
+  const items: Item[] = []
+  for (const g of groups) {
+    const isCollapsed = g.status ? collapsed.has(g.status) : false
+    if (g.status) items.push({ kind: "group", status: g.status, count: g.blocks.reduce((sum, b) => sum + b.length, 0), collapsed: isCollapsed })
+    if (!isCollapsed) for (const b of g.blocks) for (const row of b) items.push({ kind: "row", row })
+  }
+
+  // Frozen rows stick under the header, each offset by the heights of the frozen rows above it.
+  const rowTop: number[] = []
+  let y = HEAD_H
+  items.slice(0, p.frozenRows).forEach((it) => {
+    rowTop.push(y)
+    y += it.kind === "group" ? GROUP_H : ROW_H
+  })
+  const lastFrozenRow = rowTop.length - 1
+
+  const freezeLine = (right: boolean, bottom: boolean) =>
+    [right && "2px 0 0 var(--grid-freeze)", bottom && "0 2px 0 var(--grid-freeze)"].filter(Boolean).join(", ") || undefined
+
+  const cellStyle = (rowIdx: number, colIdx: number | null, width?: number): React.CSSProperties => {
+    const frozenRow = rowIdx < rowTop.length
+    const left = colIdx === null ? 0 : colLeft[colIdx]
+    const frozenCol = left !== undefined
+    return {
+      width,
+      position: frozenRow || frozenCol ? "sticky" : undefined,
+      top: frozenRow ? rowTop[rowIdx] : undefined,
+      left: frozenCol ? left : undefined,
+      zIndex: frozenRow && frozenCol ? 16 : frozenRow ? 15 : frozenCol ? 10 : undefined,
+      boxShadow: freezeLine(colIdx === lastFrozenCol || (colIdx === null && lastFrozenCol < 0), rowIdx === lastFrozenRow),
+    }
+  }
 
   let n = 0
-  const renderRow = (row: Row<JobRow>) => {
-    n += 1
+  const renderRow = (row: Row<JobRow>, idx: number) => {
+    if (!row.original._child) n += 1
     const j = row.original
     return (
       <tr
@@ -419,7 +465,7 @@ export function Grid(p: Props) {
         className={cn("group/row h-9 cursor-pointer", j.removed && "opacity-55")}
       >
         <td
-          style={{ width: ROWNUM, ...stickyCell(true, 0) }}
+          style={cellStyle(idx, null, ROWNUM)}
           className="bg-background group-hover/row:bg-grid-hover border-grid text-muted-foreground border-b text-center text-xs tabular-nums"
         >
           <span className="group-hover/row:hidden">{j._child ? "" : n}</span>
@@ -435,16 +481,15 @@ export function Grid(p: Props) {
             <Maximize2Icon className="size-3.5" />
           </button>
         </td>
-        {row.getVisibleCells().map((cell) => {
+        {row.getVisibleCells().map((cell, ci) => {
           const meta = (cell.column.columnDef.meta || {}) as Meta
           return (
             <td
               key={cell.id}
-              style={{ width: cell.column.getSize(), ...stickyCell(!!meta.sticky, ROWNUM) }}
+              style={cellStyle(idx, ci, cell.column.getSize())}
               className={cn(
                 "bg-background group-hover/row:bg-grid-hover border-grid overflow-hidden border-r border-b px-2 align-middle whitespace-nowrap",
                 j._child && "bg-muted/30",
-                meta.sticky && "shadow-[1px_0_0_var(--grid)]",
                 meta.className
               )}
             >
@@ -455,6 +500,29 @@ export function Grid(p: Props) {
       </tr>
     )
   }
+
+  const renderGroup = (it: Extract<Item, { kind: "group" }>, idx: number) => (
+    <tr key={`group-${it.status}`} className="h-10">
+      <td colSpan={visibleCols.length + 1} style={cellStyle(idx, null)} className="bg-muted border-grid border-b p-0">
+        <button
+          type="button"
+          onClick={() =>
+            setCollapsed((s) => {
+              const next = new Set(s)
+              if (next.has(it.status)) next.delete(it.status)
+              else next.add(it.status)
+              return next
+            })
+          }
+          className="sticky left-0 flex h-10 items-center gap-2 px-3 text-sm"
+        >
+          {it.collapsed ? <ChevronRightIcon className="size-4" /> : <ChevronDownIcon className="size-4" />}
+          <StatusPill status={it.status} />
+          <span className="text-muted-foreground text-xs tabular-nums">{it.count}</span>
+        </button>
+      </td>
+    </tr>
+  )
 
   return (
     <div className="grid-scroll h-full overflow-auto overscroll-contain">
@@ -471,12 +539,12 @@ export function Grid(p: Props) {
         <thead>
           <tr className="h-8">
             <th
-              style={{ width: ROWNUM, position: "sticky", top: 0, left: 0, zIndex: 30 }}
+              style={{ width: ROWNUM, position: "sticky", top: 0, left: 0, zIndex: 30, boxShadow: freezeLine(lastFrozenCol < 0, false) }}
               className="bg-grid-head border-grid border-b"
             />
-            {headers.map((h) => {
-              const meta = (h.column.columnDef.meta || {}) as Meta
+            {headers.map((h, ci) => {
               const sorted = h.column.getIsSorted()
+              const frozen = colLeft[ci] !== undefined
               return (
                 <th
                   key={h.id}
@@ -484,13 +552,11 @@ export function Grid(p: Props) {
                     width: h.getSize(),
                     position: "sticky",
                     top: 0,
-                    zIndex: meta.sticky ? 30 : 20,
-                    left: meta.sticky ? ROWNUM : undefined,
+                    zIndex: frozen ? 30 : 20,
+                    left: frozen ? colLeft[ci] : undefined,
+                    boxShadow: freezeLine(ci === lastFrozenCol, false),
                   }}
-                  className={cn(
-                    "bg-grid-head border-grid group/th relative border-r border-b px-2 text-left text-xs font-medium text-foreground/80 select-none",
-                    meta.sticky && "shadow-[1px_0_0_var(--grid)]"
-                  )}
+                  className="bg-grid-head border-grid group/th relative border-r border-b px-2 text-left text-xs font-medium text-foreground/80 select-none"
                 >
                   <button
                     type="button"
@@ -521,37 +587,7 @@ export function Grid(p: Props) {
           </tr>
         </thead>
         <tbody>
-          {groups.map((g) => {
-            const isCollapsed = g.status ? collapsed.has(g.status) : false
-            const count = g.blocks.reduce((sum, b) => sum + b.length, 0)
-            return (
-              <GroupRows key={g.status || "all"}>
-                {g.status && (
-                  <tr className="h-10">
-                    <td colSpan={visibleCols.length + 1} className="bg-muted/50 border-grid border-b p-0">
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setCollapsed((s) => {
-                            const next = new Set(s)
-                            if (next.has(g.status!)) next.delete(g.status!)
-                            else next.add(g.status!)
-                            return next
-                          })
-                        }
-                        className="sticky left-0 flex h-10 items-center gap-2 px-3 text-sm"
-                      >
-                        {isCollapsed ? <ChevronRightIcon className="size-4" /> : <ChevronDownIcon className="size-4" />}
-                        <StatusPill status={g.status} />
-                        <span className="text-muted-foreground text-xs tabular-nums">{count}</span>
-                      </button>
-                    </td>
-                  </tr>
-                )}
-                {!isCollapsed && g.blocks.map((b) => b.map(renderRow))}
-              </GroupRows>
-            )
-          })}
+          {items.map((it, idx) => (it.kind === "group" ? renderGroup(it, idx) : renderRow(it.row, idx)))}
           {rows.length === 0 && (
             <tr>
               <td colSpan={visibleCols.length + 1} className="text-muted-foreground p-0">
@@ -563,8 +599,4 @@ export function Grid(p: Props) {
       </table>
     </div>
   )
-}
-
-function GroupRows({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
 }

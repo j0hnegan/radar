@@ -11,16 +11,17 @@ import {
   KanbanSquareIcon,
   ListFilterIcon,
   LogOutIcon,
+  MinusIcon,
+  MoonIcon,
+  PinIcon,
   PlusIcon,
   RowsIcon,
-  SearchIcon,
   Sheet as SheetIcon,
-  XIcon,
+  SunIcon,
 } from "lucide-react"
 import { Toaster } from "@/components/ui/sonner"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -42,6 +43,8 @@ import { AddDialog, RemoveDialog } from "./dialogs"
 import { Screened } from "./screened"
 import { Stats } from "./stats"
 import { Login } from "./login"
+import { FilterChips, matchesFilters, SearchBox, type Filter } from "./search-filters"
+import { useTheme } from "./use-theme"
 
 type View = "grid" | "kanban" | "screened" | "stats"
 
@@ -63,9 +66,22 @@ type Prefs = {
   sorting: SortingState
   visibility: VisibilityState
   sizing: ColumnSizingState
+  filters: Filter[]
+  frozenRows: number
+  frozenCols: number
 }
 
-const DEFAULT_PREFS: Prefs = { view: "grid", filter: "active", group: false, sorting: [], visibility: DEFAULT_HIDDEN, sizing: {} }
+const DEFAULT_PREFS: Prefs = {
+  view: "grid",
+  filter: "active",
+  group: false,
+  sorting: [],
+  visibility: DEFAULT_HIDDEN,
+  sizing: {},
+  filters: [],
+  frozenRows: 0,
+  frozenCols: 1,
+}
 
 function usePrefs() {
   // Shell only mounts in the browser after sign-in, so reading storage here is safe.
@@ -91,6 +107,7 @@ function usePrefs() {
 
 export function RadarApp() {
   const board = useBoardState()
+  const [theme] = useTheme()
   return (
     <BoardContext.Provider value={board}>
       <TooltipProvider>
@@ -103,7 +120,7 @@ export function RadarApp() {
         ) : (
           <Shell />
         )}
-        <Toaster />
+        <Toaster theme={theme} />
       </TooltipProvider>
     </BoardContext.Provider>
   )
@@ -133,26 +150,16 @@ function ToolbarButton({
 function Shell() {
   const { jobs, screened, logout } = useBoard()
   const [prefs, setPref] = usePrefs()
-  const [search, setSearch] = useState("")
+  const [theme, toggleTheme] = useTheme()
   const [openId, setOpenId] = useState<string | null>(null)
   const [removeId, setRemoveId] = useState<string | null>(null)
   const [adding, setAdding] = useState(false)
-  const [searchOpen, setSearchOpen] = useState(false)
 
   const quick = QUICK_FILTERS.find((f) => f.key === prefs.filter) || QUICK_FILTERS[0]
-  const filtered = useMemo(() => {
-    const q = search.trim().toLowerCase()
-    return jobs
-      .filter(quick.test)
-      .filter(
-        (j) =>
-          !q ||
-          [j.company, j.job_title, j.location, j.one_line_about, j.notes, j.source, j.fit_reason].some((v) =>
-            String(v || "").toLowerCase().includes(q)
-          )
-      )
-      .sort(smartCompare)
-  }, [jobs, quick, search])
+  const filtered = useMemo(
+    () => jobs.filter((j) => quick.test(j) && matchesFilters(j, prefs.filters)).sort(smartCompare),
+    [jobs, quick, prefs.filters]
+  )
   const nested = useMemo(() => nestByCompany(filtered, jobs), [filtered, jobs])
 
   const counts = useMemo(() => {
@@ -181,15 +188,16 @@ function Shell() {
   ]
 
   const showTools = prefs.view === "grid" || prefs.view === "kanban"
+  const visibleCols = GRID_COLUMNS.filter((c) => prefs.visibility[c.id] !== false)
+  const frozenColNames = ["Company", ...visibleCols.map((c) => c.label)]
+  const maxFrozenCols = frozenColNames.length
+  const freezeActive = prefs.frozenRows > 0 || prefs.frozenCols !== 1
 
   return (
     <div className="flex h-dvh flex-col overflow-hidden">
       {/* Base header */}
       <header className="bg-brand text-brand-foreground flex h-12 shrink-0 items-center gap-3 px-3 pt-[env(safe-area-inset-top)] sm:px-4">
-        <div className="flex items-center gap-2">
-          <RadarMark />
-          <span className="text-[15px] font-semibold tracking-tight">Radar</span>
-        </div>
+        <span className="text-[15px] font-semibold tracking-tight">Radar</span>
         <div className="text-brand-foreground/70 ml-auto hidden items-center gap-4 text-xs md:flex">
           <span>
             <b className="text-brand-foreground font-semibold">{summary.new}</b> new
@@ -206,6 +214,16 @@ function Shell() {
         <div className="ml-auto flex items-center gap-1 md:ml-2">
           <Button size="sm" onClick={() => setAdding(true)} className="bg-white/12 text-brand-foreground h-8 hover:bg-white/20">
             <PlusIcon /> <span className="max-sm:sr-only">Add role</span>
+          </Button>
+          <Button
+            size="icon-sm"
+            variant="ghost"
+            className="text-brand-foreground/70 hover:text-brand-foreground hover:bg-white/10"
+            onClick={toggleTheme}
+            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            title={theme === "dark" ? "Light mode" : "Dark mode"}
+          >
+            {theme === "dark" ? <SunIcon /> : <MoonIcon />}
           </Button>
           <Button
             size="icon-sm"
@@ -242,124 +260,133 @@ function Shell() {
         ))}
       </nav>
 
-      {/* Toolbar */}
+      {/* Toolbar: search and filters on the left, view tools and sort on the right */}
       {showTools && (
-        <div className="bg-background no-scrollbar flex h-11 shrink-0 items-center gap-0.5 overflow-x-auto border-b px-2 sm:px-3">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <ToolbarButton icon={FilterIcon} label={quick.key === "active" ? "Filter" : `Filter: ${quick.label}`} active={quick.key !== "active"} />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" className="w-52">
-              <DropdownMenuLabel>Show</DropdownMenuLabel>
-              <DropdownMenuRadioGroup value={prefs.filter} onValueChange={(v) => setPref("filter", v)}>
-                {QUICK_FILTERS.map((f) => (
-                  <DropdownMenuRadioItem key={f.key} value={f.key} className="justify-between">
-                    {f.label}
-                    <span className="text-muted-foreground ml-auto text-xs tabular-nums">{counts[f.key]}</span>
-                  </DropdownMenuRadioItem>
-                ))}
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+        <div className="bg-background flex h-11 shrink-0 items-center gap-1.5 border-b px-2 sm:px-3">
+          <SearchBox jobs={jobs.filter(quick.test)} onAdd={(f) => setPref("filters", (fs) => [...fs, f])} />
 
-          {prefs.view === "grid" && (
-            <ToolbarButton
-              icon={RowsIcon}
-              label={prefs.group ? "Grouped by status" : "Group"}
-              active={prefs.group}
-              onClick={() => setPref("group", !prefs.group)}
-            />
-          )}
-
-          {prefs.view === "grid" && (
+          <div className="no-scrollbar ml-auto flex min-w-0 items-center gap-0.5 overflow-x-auto">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <ToolbarButton
-                  icon={ArrowDownUpIcon}
-                  label={sortId ? `Sorted by ${SORT_OPTIONS.find((s) => s.id === sortId)?.label || "column"}` : "Sort"}
-                  active={!!sortId}
-                />
+                <ToolbarButton icon={FilterIcon} label={`Show: ${quick.label}`} active={quick.key !== "active"} />
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-52">
-                <DropdownMenuLabel>Sort by</DropdownMenuLabel>
-                {SORT_OPTIONS.map((s) => (
-                  <DropdownMenuItem key={s.id || "smart"} onSelect={() => setPref("sorting", s.id ? [{ id: s.id, desc: s.desc }] : [])}>
-                    <CheckIcon className={cn("size-4", sortId === s.id ? "opacity-100" : "opacity-0")} />
-                    {s.label}
-                  </DropdownMenuItem>
-                ))}
-                <DropdownMenuSeparator />
-                <p className="text-muted-foreground px-2 py-1.5 text-xs">Smart order puts what needs you first, then best fit. Click any column header to sort by it.</p>
+              <DropdownMenuContent align="end" className="w-52">
+                <DropdownMenuLabel>Show</DropdownMenuLabel>
+                <DropdownMenuRadioGroup value={prefs.filter} onValueChange={(v) => setPref("filter", v)}>
+                  {QUICK_FILTERS.map((f) => (
+                    <DropdownMenuRadioItem key={f.key} value={f.key} className="justify-between">
+                      {f.label}
+                      <span className="text-muted-foreground ml-auto text-xs tabular-nums">{counts[f.key]}</span>
+                    </DropdownMenuRadioItem>
+                  ))}
+                </DropdownMenuRadioGroup>
               </DropdownMenuContent>
             </DropdownMenu>
-          )}
 
-          {prefs.view === "grid" && (
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <ToolbarButton
-                  icon={EyeOffIcon}
-                  label={hiddenCount ? `${hiddenCount} hidden field${hiddenCount > 1 ? "s" : ""}` : "Hide fields"}
-                  active={hiddenCount > 0}
-                />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-52">
-                <DropdownMenuLabel>Fields</DropdownMenuLabel>
-                {GRID_COLUMNS.map((c) => (
-                  <DropdownMenuCheckboxItem
-                    key={c.id}
-                    checked={prefs.visibility[c.id] !== false}
-                    onSelect={(e) => e.preventDefault()}
-                    onCheckedChange={(on) => setPref("visibility", (v) => ({ ...v, [c.id]: !!on }))}
-                  >
-                    {c.label}
-                  </DropdownMenuCheckboxItem>
-                ))}
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onSelect={() => { setPref("visibility", DEFAULT_HIDDEN); setPref("sizing", {}) }}>
-                  Reset fields and widths
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          )}
+            {prefs.view === "grid" && (
+              <ToolbarButton
+                icon={RowsIcon}
+                label={prefs.group ? "Grouped by status" : "Group"}
+                active={prefs.group}
+                onClick={() => setPref("group", !prefs.group)}
+              />
+            )}
 
-          <div className="ml-auto flex items-center pl-2">
-            {searchOpen || search ? (
-              <div className="relative">
-                <SearchIcon className="text-muted-foreground absolute top-1/2 left-2.5 size-4 -translate-y-1/2" />
-                <Input
-                  autoFocus
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  onBlur={() => !search && setSearchOpen(false)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Escape") {
-                      setSearch("")
-                      setSearchOpen(false)
-                    }
-                  }}
-                  placeholder="Search roles"
-                  className="h-8 w-44 pr-7 pl-8 sm:w-60"
-                  aria-label="Search roles"
-                />
-                {search && (
-                  <button
-                    type="button"
-                    className="text-muted-foreground hover:text-foreground absolute top-1/2 right-2 -translate-y-1/2"
-                    onClick={() => {
-                      setSearch("")
-                      setSearchOpen(false)
+            {prefs.view === "grid" && (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <ToolbarButton icon={PinIcon} label="Freeze" active={freezeActive} />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-60">
+                  <DropdownMenuLabel>Freeze</DropdownMenuLabel>
+                  <Stepper
+                    label="Rows"
+                    hint={prefs.frozenRows ? `Top ${prefs.frozenRows}` : "None"}
+                    value={prefs.frozenRows}
+                    max={filtered.length}
+                    onChange={(v) => setPref("frozenRows", v)}
+                  />
+                  <Stepper
+                    label="Columns"
+                    hint={prefs.frozenCols ? `Through ${frozenColNames[Math.min(prefs.frozenCols, maxFrozenCols) - 1]}` : "None"}
+                    value={Math.min(prefs.frozenCols, maxFrozenCols)}
+                    max={maxFrozenCols}
+                    onChange={(v) => setPref("frozenCols", v)}
+                  />
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem
+                    onSelect={() => {
+                      setPref("frozenRows", 0)
+                      setPref("frozenCols", 1)
                     }}
-                    aria-label="Clear search"
                   >
-                    <XIcon className="size-3.5" />
-                  </button>
-                )}
-              </div>
-            ) : (
-              <ToolbarButton icon={SearchIcon} label="Search" onClick={() => setSearchOpen(true)} />
+                    Reset to company column only
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
+
+            {prefs.view === "grid" && (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <ToolbarButton
+                    icon={EyeOffIcon}
+                    label={hiddenCount ? `${hiddenCount} hidden field${hiddenCount > 1 ? "s" : ""}` : "Hide fields"}
+                    active={hiddenCount > 0}
+                  />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-52">
+                  <DropdownMenuLabel>Fields</DropdownMenuLabel>
+                  {GRID_COLUMNS.map((c) => (
+                    <DropdownMenuCheckboxItem
+                      key={c.id}
+                      checked={prefs.visibility[c.id] !== false}
+                      onSelect={(e) => e.preventDefault()}
+                      onCheckedChange={(on) => setPref("visibility", (v) => ({ ...v, [c.id]: !!on }))}
+                    >
+                      {c.label}
+                    </DropdownMenuCheckboxItem>
+                  ))}
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onSelect={() => { setPref("visibility", DEFAULT_HIDDEN); setPref("sizing", {}) }}>
+                    Reset fields and widths
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
+
+            {prefs.view === "grid" && (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <ToolbarButton
+                    icon={ArrowDownUpIcon}
+                    label={sortId ? `Sorted by ${SORT_OPTIONS.find((s) => s.id === sortId)?.label || "column"}` : "Sort"}
+                    active={!!sortId}
+                  />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-52">
+                  <DropdownMenuLabel>Sort by</DropdownMenuLabel>
+                  {SORT_OPTIONS.map((s) => (
+                    <DropdownMenuItem key={s.id || "smart"} onSelect={() => setPref("sorting", s.id ? [{ id: s.id, desc: s.desc }] : [])}>
+                      <CheckIcon className={cn("size-4", sortId === s.id ? "opacity-100" : "opacity-0")} />
+                      {s.label}
+                    </DropdownMenuItem>
+                  ))}
+                  <DropdownMenuSeparator />
+                  <p className="text-muted-foreground px-2 py-1.5 text-xs">Smart order puts what needs you first, then best fit. Click any column header to sort by it.</p>
+                </DropdownMenuContent>
+              </DropdownMenu>
             )}
           </div>
+        </div>
+      )}
+      {showTools && prefs.filters.length > 0 && (
+        <div className="bg-background no-scrollbar flex h-10 shrink-0 items-center overflow-x-auto border-b px-2 sm:px-3">
+          <FilterChips
+            filters={prefs.filters}
+            onRemove={(i) => setPref("filters", (fs) => fs.filter((_, k) => k !== i))}
+            onClear={() => setPref("filters", [])}
+          />
         </div>
       )}
 
@@ -374,6 +401,8 @@ function Shell() {
             onColumnVisibilityChange={(u) => setPref("visibility", u)}
             columnSizing={prefs.sizing}
             onColumnSizingChange={(u) => setPref("sizing", u)}
+            frozenRows={prefs.frozenRows}
+            frozenCols={prefs.frozenCols}
             onOpen={setOpenId}
             onRemove={onRemove}
           />
@@ -387,6 +416,7 @@ function Shell() {
         <footer className="bg-grid-head text-muted-foreground flex h-8 shrink-0 items-center border-t px-3 pb-[env(safe-area-inset-bottom)] text-xs tabular-nums">
           {filtered.length} record{filtered.length === 1 ? "" : "s"}
           {quick.key !== "all" && <span className="ml-1">· {quick.label.toLowerCase()}</span>}
+          {prefs.filters.length > 0 && <span className="ml-1">· {prefs.filters.length} filter{prefs.filters.length > 1 ? "s" : ""}</span>}
         </footer>
       )}
 
@@ -396,6 +426,25 @@ function Shell() {
         onClose={() => setRemoveId(null)}
       />
       <AddDialog open={adding} onClose={() => setAdding(false)} onAdded={setOpenId} />
+    </div>
+  )
+}
+
+function Stepper({ label, hint, value, max, onChange }: { label: string; hint: string; value: number; max: number; onChange: (v: number) => void }) {
+  const btn = "hover:bg-accent grid size-7 place-items-center rounded-md border disabled:pointer-events-none disabled:opacity-40"
+  return (
+    <div className="flex items-center gap-2 px-2 py-1.5 text-sm">
+      <div className="min-w-0 flex-1">
+        <div className="font-medium">{label}</div>
+        <div className="text-muted-foreground truncate text-xs">{hint}</div>
+      </div>
+      <button type="button" className={btn} disabled={value <= 0} onClick={() => onChange(value - 1)} aria-label={`Freeze one fewer ${label.toLowerCase()}`}>
+        <MinusIcon className="size-3.5" />
+      </button>
+      <span className="w-5 text-center tabular-nums">{value}</span>
+      <button type="button" className={btn} disabled={value >= max} onClick={() => onChange(value + 1)} aria-label={`Freeze one more ${label.toLowerCase()}`}>
+        <PlusIcon className="size-3.5" />
+      </button>
     </div>
   )
 }
