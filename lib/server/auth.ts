@@ -9,7 +9,7 @@ const isLocal = () => process.env.RADAR_LOCAL_DATA === "1" && process.env.NODE_E
 
 function password() {
   const p = process.env.BOARD_PASSWORD || (isLocal() ? "local-dev-password" : "")
-  if (!p || p.length < 12) throw new HttpError(500, "BOARD_PASSWORD is not set, or is shorter than 12 characters")
+  if (!p) throw new HttpError(500, "BOARD_PASSWORD is not set")
   return p
 }
 
