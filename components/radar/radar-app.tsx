@@ -189,7 +189,6 @@ function Shell() {
         <div className="flex items-center gap-2">
           <RadarMark />
           <span className="text-[15px] font-semibold tracking-tight">Radar</span>
-          <span className="text-brand-foreground/50 hidden text-sm sm:inline">/ Job search</span>
         </div>
         <div className="text-brand-foreground/70 ml-auto hidden items-center gap-4 text-xs md:flex">
           <span>
