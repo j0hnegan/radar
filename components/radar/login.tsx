@@ -31,7 +31,6 @@ export function Login() {
           <RadarMark className="text-brand size-7" />
           <span className="text-lg font-semibold tracking-tight">Radar</span>
         </div>
-        <p className="text-muted-foreground mb-4 text-sm">Your private job board. Enter the board password.</p>
         <Input
           type="password"
           autoComplete="current-password"

@@ -6,7 +6,7 @@ const inter = Inter({ variable: "--font-inter", subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Radar",
-  description: "John's private job board",
+  description: "Radar",
   robots: { index: false, follow: false },
   icons: { icon: "/icon.svg" },
 }
