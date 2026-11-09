@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-09T05:00:34.333Z",
+  "updated_at": "2026-11-09T05:15:59.368Z",
   "jobs": [
     {
       "id": "73b62daf32",
@@ -482,15 +482,19 @@
       "source": "ashby",
       "posted_date": "",
       "company_stage": "Late-stage private",
-      "status": "New",
+      "status": "Applied",
       "status_history": [
         {
           "status": "New",
           "at": "2026-11-07T19:30:00.000Z"
+        },
+        {
+          "status": "Applied",
+          "at": "2026-11-09T05:15:59.368Z"
         }
       ],
-      "applied_at": "",
-      "last_activity_at": "2026-11-07T19:30:00.000Z",
+      "applied_at": "2026-11-09",
+      "last_activity_at": "2026-11-09T05:15:59.368Z",
       "added_at": "2026-11-07T19:30:00.000Z",
       "rounds": [],
       "thumbs": null,
