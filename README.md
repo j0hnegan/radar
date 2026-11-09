@@ -1,7 +1,5 @@
 # Radar
 
-Built with Next.js, shadcn/ui and Tailwind. There is no database: the data is three JSON files in `data/`, and every change on the board is a commit to this repo, made by a small server function on Vercel.
-
 ```
 Grokbot ──POST /api/ingest──▶ data/inbox.json        (never shown on the board)
                                    │
