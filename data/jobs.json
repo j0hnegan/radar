@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-09T05:18:09.321Z",
+  "updated_at": "2026-11-09T05:18:18.499Z",
   "jobs": [
     {
       "id": "73b62daf32",
@@ -221,7 +221,11 @@
       "added_at": "2026-11-07T19:30:00.000Z",
       "rounds": [],
       "thumbs": null,
-      "removed": null,
+      "removed": {
+        "reason": "role type",
+        "note": "",
+        "at": "2026-11-09T05:18:18.499Z"
+      },
       "notes": ""
     },
     {
